@@ -18,15 +18,15 @@ public class MainActivity extends AppCompatActivity {
 
         final ComponentContext c = new ComponentContext(this);
 
-        final LithoView lithoView = LithoView.create(
-                this /* context */,
+        /*final LithoView lithoView = LithoView.create(
+                this *//* context *//*,
                 Text.create(c)
                         .text("Hello, World!")
                         .textSizeDip(50)
-                        .build());
+                        .build());*/
 
         final Component text = ListItem.create(c).build();
 
-        setContentView(lithoView);
+        setContentView(LithoView.create(c, text));
     }
 }
