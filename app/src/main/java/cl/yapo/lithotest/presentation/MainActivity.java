@@ -1,5 +1,6 @@
 package cl.yapo.lithotest.presentation;
 
+import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.OrientationHelper;
@@ -47,11 +48,19 @@ public class MainActivity extends AppCompatActivity {
 
     private static void addContent(RecyclerBinder recyclerBinder, ComponentContext context) {
         for (int i = 0; i < 32; i++) {
-            recyclerBinder.insertItemAt(
+            /*recyclerBinder.insertItemAt(
                     i,
                     ComponentRenderInfo.create()
                             .component(ListItem.create(context).build())
+                            .build());*/
+            ComponentRenderInfo.Builder componentRenderInfoBuilder = ComponentRenderInfo.create();
+            componentRenderInfoBuilder.component(
+                    ListItem.create(context)
+                            .color(i % 2 == 0 ? Color.WHITE : Color.LTGRAY)
+                            .title("Hello, world!")
+                            .subtitle("Litho tutorial")
                             .build());
+            recyclerBinder.insertItemAt(i, componentRenderInfoBuilder.build());
         }
     }
 }
